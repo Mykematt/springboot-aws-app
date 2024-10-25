@@ -1,6 +1,6 @@
-FROM eclipse-temurin:17-jdk-alpine
-RUN apk add curl
+FROM eclipse-temurin:21
+RUN apt-get update && apt-get install -y curl
 VOLUME [ "/tmp" ]
-EXPOSE 8080
-ADD target/demo-aws.jar demo-aws.jar
-ENTRYPOINT [ "java","-jar","/demo-aws.jar" ]
+EXPOSE 8085
+ADD target/springboot-aws-app-service.jar springboot-aws-app-service.jar
+ENTRYPOINT [ "java","-jar","/springboot-aws-app-service.jar" ]
